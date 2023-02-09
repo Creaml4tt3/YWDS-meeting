@@ -1,0 +1,20 @@
+.App-Container {
+  width: 100vw;
+  height: 100vh;
+  background: var(--dark);
+  color: var(--lavender);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.Heading {
+  font-size: 50px;
+  line-height: 1.2em;
+}
+
+@media (max-width: 600px) {
+}
+
+@media (prefers-color-scheme: dark) {
+}

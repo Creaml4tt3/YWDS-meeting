@@ -1,9 +1,22 @@
+@font-face {
+  font-family: "Font";
+  src: url("/font/Font.ttf") format("truetype");
+}
+
+:root {
+  --lavender: #e5d4ed;
+  --blue: #6d72c3;
+  --purple: #5941a9;
+  --shade: #514f59;
+  --dark: #1d1128;
+  --white: #ffffff;
+  --black: #000000;
+}
+
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background: var(--white);
+  color: var(--dark);
 }
 
 a {
@@ -13,6 +26,9 @@ a {
 
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Font", sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,7 +36,7 @@ a {
     color-scheme: dark;
   }
   body {
-    color: white;
-    background: black;
+    color: var(--lavendar);
+    background: var(--shade);
   }
 }

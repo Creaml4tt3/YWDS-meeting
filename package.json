@@ -6,12 +6,18 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "next build && next export"
   },
   "dependencies": {
+    "firebase": "^9.12.1",
+    "lottie-react": "^2.3.1",
     "next": "12.3.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-fade-in": "^2.0.1",
+    "react-firebase-hooks": "^5.0.3",
+    "update": "^0.4.2"
   },
   "devDependencies": {
     "eslint": "8.26.0",

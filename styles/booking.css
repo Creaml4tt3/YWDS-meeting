@@ -1,0 +1,94 @@
+.Booking {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--purple);
+  padding: 10px 20px;
+  font-size: 18px;
+  margin: 15px;
+  border-radius: 50px;
+}
+
+.Name {
+  min-width: 200px;
+  text-align: end;
+}
+
+.StartTime,
+.EndTime {
+  min-width: 60px;
+  text-align: start;
+}
+
+.Delete {
+  width: fit-content;
+  height: fit-content;
+  color: red;
+  margin: 0px 0px 0px 10px;
+}
+
+.Delete:hover {
+  color: var(--lavender);
+  cursor: pointer;
+}
+
+.Form-Booking {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  margin: 20px;
+  position: relative;
+}
+
+.NameInput {
+  padding: 10px;
+  font-size: 18px;
+  line-height: 1.1em;
+  border-radius: 50px 0 0 50px;
+}
+
+.StartTimeInput {
+  padding: 10px;
+}
+
+.EndTimeInput {
+  padding: 10px;
+}
+
+.Submit-Button {
+  padding: 10px 20px;
+  font-size: 16px;
+  line-height: 1.1em;
+  background: var(--purple);
+  border-radius: 0 50px 50px 0;
+  height: 100%;
+  letter-spacing: 0.1em;
+  font-weight: 900;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.Submit-Button:hover {
+  background: var(--lavender);
+  color: var(--dark);
+}
+
+.NameInput,
+.StartTimeInput,
+.EndTimeInput {
+  border: none;
+  outline: none;
+  background: var(--shade);
+}
+
+.Loading {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00000090;
+}
