@@ -11,21 +11,27 @@ export default function Nav(props) {
     }
   }, []);
 
+  const homeStyle = {
+    width: 64,
+    height: 64,
+  };
+
   return (
     <div className="Nav-Container">
       <Link href="/meeting-01">
         <div className="Nav" id="Nav01">
-          Meeting 01
+          ห้องประชุมที่ 01
         </div>
       </Link>
       <Link href="/">
         <div className="Home" id="Home">
-          <Lottie animationData={Home} loop autoPlay></Lottie>
+          <div className="Home-Text">หน้าหลัก</div>
+          <Lottie animationData={Home} loop autoPlay style={homeStyle}></Lottie>
         </div>
       </Link>
       <Link href="/meeting-02">
         <div className="Nav" id="Nav02">
-          Meeting 02
+          ห้องประชุมที่ 02
         </div>
       </Link>
     </div>

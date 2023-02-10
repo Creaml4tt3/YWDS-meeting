@@ -10,7 +10,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="App-Container">
-        <span className="Heading">Welcome to Meeting Room Booking YWDS</span>
+        <span className="Heading">ยินดีต้อนรับสู่ระบบการจองห้องประชุม</span>
         <span className="Sub-Heading">BY Creaml4tt3</span>
         <Nav navActive={"Home"} />
       </main>

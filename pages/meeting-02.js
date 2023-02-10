@@ -14,7 +14,7 @@ import {
 import * as Loading from "../public/lottie/Loading.json";
 import FadeIn from "react-fade-in/lib/FadeIn";
 
-export default function Meeting01() {
+export default function Meeting02() {
   const [waiting, setWaiting] = useState(true);
 
   const loadingStyle = {
@@ -36,7 +36,6 @@ export default function Meeting01() {
 
   function BookingList() {
     const bookingRef = firestore.collection("meeting-02");
-    const query = bookingRef.orderBy("startTime");
 
     const [isLoading, setIsLoading] = useState(false);
 
@@ -51,10 +50,11 @@ export default function Meeting01() {
             name: docData.name,
             startTime: docData.startTime,
             endTime: docData.endTime,
+            createAt: docData.createAt,
           };
 
           booking.push(docAlldata);
-          booking.sort((a, b) => a.startTime.localeCompare(b.startTime));
+          booking.sort((a, b) => b.startTime.localeCompare(a.startTime));
         });
         setIsLoading(true);
         setWaiting(false);
@@ -68,6 +68,7 @@ export default function Meeting01() {
     const Booked = async (e) => {
       e.preventDefault();
 
+      let createValue = new Date();
       setWaiting(true);
 
       await bookingRef
@@ -75,7 +76,7 @@ export default function Meeting01() {
           name: nameValue,
           startTime: startValue,
           endTime: endValue,
-          createAt: firebase.firestore.FieldValue.serverTimestamp(),
+          createAt: createValue,
         })
         .then(() => {});
       setNameValue("");
@@ -86,17 +87,17 @@ export default function Meeting01() {
     return (
       <>
         <div className="Booking-Container">
-          {isLoading &&
+          {!waiting &&
             booking.map((book) => (
               <BookingListing key={book.id} booking={book} />
             ))}
         </div>
         <div className="Form-Container">
-          <form className="Form-Booking" id="Form-Meeting-01" onSubmit={Booked}>
+          <form className="Form-Booking" id="Form-Meeting-02" onSubmit={Booked}>
             <input
               className="NameInput"
               type="text"
-              placeholder="Name..."
+              placeholder="รายการ..."
               value={nameValue}
               onChange={(e) => setNameValue(e.target.value)}
               required
@@ -163,7 +164,29 @@ export default function Meeting01() {
   }
 
   function BookingListing(props) {
-    const { name, startTime, endTime, id } = props.booking;
+    const { name, startTime, endTime, id, createAt } = props.booking;
+
+    let dateObj = new Date(createAt.seconds * 1000);
+    let years = dateObj.getFullYear();
+    let months = dateObj.getMonth();
+    let days = dateObj.getDate();
+    let hours = dateObj.getUTCHours();
+    let minutes = dateObj.getUTCMinutes();
+    let seconds = dateObj.getSeconds();
+
+    let dateString =
+      days.toString().padStart(2, "0") +
+      "/" +
+      months.toString().padStart(2, "0") +
+      "/" +
+      years.toString();
+
+    let timeString =
+      hours.toString().padStart(2, "0") +
+      ":" +
+      minutes.toString().padStart(2, "0") +
+      ":" +
+      seconds.toString().padStart(2, "0");
 
     async function deleteBook(id) {
       const reference = doc(firestore, "meeting-02", id);
@@ -177,11 +200,24 @@ export default function Meeting01() {
       <>
         <FadeIn>
           <div className="Booking">
-            <div className="StartTime">{startTime}</div>
-            <div className="EndTime">/ {endTime}</div>
-            <div className="Name">{name}</div>
+            <section className="Widget-Container">
+              <span className="Title">วันที่สร้าง</span>
+              <div className="DateCreateAt">{dateString}</div>
+            </section>
+            <section className="Widget-Container">
+              <span className="Title">เวลาที่สร้าง</span>
+              <div className="TimeCreateAt">{timeString}</div>
+            </section>
+            <section className="Widget-Container">
+              <span className="Title">ช่วงเวลา</span>
+              <div className="Time">{startTime + " / " + endTime}</div>
+            </section>
+            <section className="Widget-Container">
+              <span className="Title">รายการ</span>
+              <div className="Name">{name}</div>
+            </section>
             <div className="Delete" onClick={() => deleteBook(id)}>
-              &#9938;
+              X
             </div>
           </div>
         </FadeIn>

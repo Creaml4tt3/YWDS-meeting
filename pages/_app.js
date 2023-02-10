@@ -1,7 +1,4 @@
-import "../styles/globals.css";
-import "../styles/index.css";
-import "../styles/nav.css";
-import "../styles/booking.css";
+import "../styles/styles.scss";
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;

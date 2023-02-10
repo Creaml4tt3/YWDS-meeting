@@ -1,12 +1,13 @@
 .Booking {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   background: var(--purple);
   padding: 10px 20px;
   font-size: 18px;
   margin: 15px;
   border-radius: 50px;
+  gap: 20px;
 }
 
 .Name {

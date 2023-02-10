@@ -1,0 +1,260 @@
+@font-face {
+  font-family: "Font";
+  src: url("/font/Font.ttf") format("truetype");
+}
+
+$red: #e02727;
+$blue: #6d72c3;
+$purple: #5941a9;
+$shade: #514f59;
+$background: #fbfbfb;
+$white: #ffffff;
+$black: #000000;
+
+html,
+body {
+  background: $white;
+  color: $background;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Font", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: $red;
+    background: $shade;
+  }
+}
+
+.App-Container {
+  width: 100vw;
+  height: 100vh;
+  background: $background;
+  color: $red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.Heading {
+  font-size: 56px;
+  line-height: 1.2em;
+}
+
+.Sub-Heading {
+  font-size: 24px;
+}
+
+.Nav-Container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 8vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: fit-content;
+  gap: 8px;
+  height: 6vh;
+}
+
+.Nav,
+.Home {
+  background: $white;
+  color: $red;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 8px;
+  transition: all 0.3s;
+  cursor: pointer;
+  user-select: none;
+  font-size: 16px;
+  border: 2px solid $red;
+  box-shadow: 0px 8px 0px $red;
+  border-radius: 48px;
+}
+
+.Home {
+  width: 25%;
+  border-right: 2px solid $red;
+  border-left: 2px solid $red;
+}
+
+.Home-Text {
+  position: absolute;
+  color: $red;
+}
+
+.Nav:hover,
+.Home:hover {
+  background: $red;
+  color: $white;
+  transform: translateY(8px);
+  box-shadow: none;
+}
+
+.Nav-Active {
+  background: $red;
+  transform: translateY(8px);
+  box-shadow: none;
+}
+
+.Nav-Active.Nav {
+  background: $red;
+  color: $white;
+}
+
+.Booking {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  background: $white;
+  padding: 6px 12px;
+  /*   border: 2px solid $red; */
+  font-size: 18px;
+  margin: 8px;
+  border-radius: 50px;
+  gap: 16px;
+
+  div:not(.Delete) {
+    padding: 4px 16px;
+    border: 2px solid $red;
+    border-radius: 48px;
+  }
+}
+
+.Widget-Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  .Title {
+    font-size: 16px;
+    font-weight: 900;
+  }
+}
+
+.Name {
+  min-width: 320px;
+  text-align: end;
+}
+
+.Time {
+  text-align: center;
+  background: $red;
+  color: $white;
+}
+
+.Delete {
+  width: fit-content;
+  height: fit-content;
+  color: $white;
+  background: $red;
+  border-radius: 48px;
+  border: 2px solid $red;
+  padding: 6px 10px;
+  font-size: 16px;
+  margin: 0px 0px 0px 10px;
+}
+
+.Delete:hover {
+  color: $red;
+  cursor: pointer;
+}
+
+.Form-Booking {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  align-self: center;
+  margin: 20px;
+  position: relative;
+}
+
+.NameInput {
+  padding: 10px;
+  font-size: 18px;
+  line-height: 1.1em;
+  border-radius: 50px 0 0 50px;
+  min-width: 320px;
+}
+
+.NameInput::placeholder {
+  color: $red;
+}
+
+.StartTimeInput {
+  padding: 10px;
+}
+
+.EndTimeInput {
+  padding: 10px;
+}
+
+:is(.StartTimeInput, .EndTimeInput)::-webkit-calendar-picker-indicator {
+  background-color: $red;
+  border-radius: 48px;
+}
+
+.Submit-Button {
+  padding: 10px 20px;
+  border: 2px solid $red;
+  box-shadow: 0px 8px 0px $red;
+  font-size: 16px;
+  line-height: 1.1em;
+  background: $white;
+  border-radius: 48px;
+  height: 100%;
+  letter-spacing: 0.1em;
+  font-weight: 900;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: $red;
+}
+
+.Submit-Button:hover {
+  background: $red;
+  color: $white;
+  transform: translateY(8px);
+  box-shadow: none;
+}
+
+.NameInput,
+.StartTimeInput,
+.EndTimeInput {
+  color: $red;
+  outline: none;
+  background: $white;
+  border-radius: 48px;
+  border: 2px solid $red;
+}
+
+.Loading {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00000090;
+}
