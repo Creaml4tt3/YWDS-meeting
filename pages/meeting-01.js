@@ -168,10 +168,10 @@ export default function Meeting01() {
 
     let dateObj = new Date(createAt.seconds * 1000);
     let years = dateObj.getFullYear();
-    let months = dateObj.getMonth();
+    let months = dateObj.getMonth() + 1;
     let days = dateObj.getDate();
-    let hours = dateObj.getUTCHours();
-    let minutes = dateObj.getUTCMinutes();
+    let hours = dateObj.getHours();
+    let minutes = dateObj.getMinutes();
     let seconds = dateObj.getSeconds();
 
     let dateString =
